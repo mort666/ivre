@@ -80,7 +80,7 @@
 
 #fullscreen-btn.active {
     background-color: #f3f3f3;
-    border-radius: 50%;
+    border-radius: 0px;
     border: 1px solid #ccc;
 }
 
@@ -210,6 +210,6 @@ input.ng-invalid {
 .dark #fullscreen-btn.active {
     background-color: #555;
     color: #ccc;
-    border-radius: 50%;
+    border-radius: 0px;
     border: 1px solid #333;
 }

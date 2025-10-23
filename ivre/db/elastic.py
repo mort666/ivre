@@ -26,8 +26,8 @@ import re
 from urllib.parse import unquote
 
 from elasticsearch import Elasticsearch, helpers
-from elasticsearch_dsl import Q
-from elasticsearch_dsl.query import Query
+from elasticsearch.dsl import Q
+from elasticsearch.dsl.query import Query
 
 from ivre import utils
 from ivre.active.nmap import ALIASES_TABLE_ELEMS

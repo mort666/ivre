@@ -57,7 +57,7 @@ def main() -> None:
         "sqlalchemy",
         "tinydb",
         "elasticsearch",
-        "elasticsearch_dsl",
+        "elasticsearch.dsl",
     ]:
         version = get_version(module)
         if version is None:
