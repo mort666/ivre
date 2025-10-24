@@ -14,16 +14,15 @@
 # You should have received a copy of the GNU General Public License
 # along with IVRE. If not, see <http://www.gnu.org/licenses/>.
 
-FROM debian:12
+FROM python:3.13-slim-bookworm
 LABEL maintainer="Hostmasters <hostmasters@virus.org>"
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install pip, get IVRE, uninstall pip
 RUN apt-get -q update && \
-    apt-get -qy --no-install-recommends install python3 python3-pip git ca-certificates && \
-    pip3 install --break-system-packages git+https://github.com/mort666/ivre && \
-    apt-get -qy --purge autoremove python3-pip git && \
+    apt-get -qy --no-install-recommends install git ca-certificates && \
+    pip install git+https://github.com/mort666/ivre && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Fix version

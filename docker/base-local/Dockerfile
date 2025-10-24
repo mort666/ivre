@@ -14,29 +14,28 @@
 # You should have received a copy of the GNU General Public License
 # along with IVRE. If not, see <http://www.gnu.org/licenses/>.
 
-FROM debian:12 AS builder
+FROM python:3.13-slim-bookworm⁠ AS builder
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install pip then install IVRE
 ADD ivre.tar ./
 RUN apt-get -q update && \
-    apt-get -qy --no-install-recommends install python3-pip && \
-    pip3 install --break-system-packages /ivre
+    pip install /ivre
 
 
-FROM debian:12
+FROM python:3.13-slim-bookworm⁠
 LABEL maintainer="Hostmasters <hostmasters@virus.org>"
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install Python
 RUN apt-get -q update && \
-    apt-get -qy --no-install-recommends install python3 ca-certificates && \
+    apt-get -qy --no-install-recommends install ca-certificates && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /usr/local/etc/bash_completion.d/ivre /usr/local/etc/bash_completion.d/ivre
-COPY --from=builder /usr/local/lib/python3.11 /usr/local/lib/python3.11
+COPY --from=builder /usr/local/lib/python3.13 /usr/local/lib/python3.13
 COPY --from=builder /usr/local/bin/ivre /usr/local/bin/ivre
 COPY --from=builder /usr/local/share/doc/ivre /usr/local/share/doc/ivre
 COPY --from=builder /usr/local/share/ivre /usr/local/share/ivre

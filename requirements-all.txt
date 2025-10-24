@@ -9,13 +9,13 @@ flake8
 mypy
 psycopg2
 pylint
-pymongo>=3.7
-pymongo[srv]>=3.7
-pyOpenSSL>=16.1.0
+pymongo
+pymongo[srv]
+pyOpenSSL
 rstcheck[sphinx]
 Sphinx
 sphinxcontrib-httpdomain
 sphinx_rtd_theme
 sphinx-lint
-sqlalchemy<2
+sqlalchemy
 tinydb

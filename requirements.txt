@@ -1,4 +1,13 @@
-pymongo>=3.7
+pymongo
+elasticsearch
 cryptography
-pyOpenSSL>=16.1.0
+pyOpenSSL
 bottle
+sqlalchemy
+tinydb
+psycopg2
+matplotlib
+dbus
+pycurl
+scapy
+pillow
