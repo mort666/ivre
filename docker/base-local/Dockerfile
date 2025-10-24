@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with IVRE. If not, see <http://www.gnu.org/licenses/>.
 
-FROM python:3.13-slim-bookworm⁠ AS builder
+FROM python:3.12-slim-bookworm⁠ AS builder
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -24,7 +24,7 @@ RUN apt-get -q update && \
     pip install /ivre
 
 
-FROM python:3.13-slim-bookworm⁠
+FROM python:3.12-slim-bookworm⁠
 LABEL maintainer="Hostmasters <hostmasters@virus.org>"
 
 ENV DEBIAN_FRONTEND noninteractive

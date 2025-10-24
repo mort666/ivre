@@ -14,15 +14,15 @@
 # You should have received a copy of the GNU General Public License
 # along with IVRE. If not, see <http://www.gnu.org/licenses/>.
 
-FROM python:3.13-slim-bookworm
+FROM python:3.12-slim-bookworm
 LABEL maintainer="Hostmasters <hostmasters@virus.org>"
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install pip, get IVRE, uninstall pip
 RUN apt-get -q update && \
-    apt-get -qy --no-install-recommends install git libpq-dev ca-certificates && \
-    pip install 'setuptools<80.0.0' && \
+    apt-get -qy --no-install-recommends install git pkg-config cmake libdbus-1-dev libglib2.0-dev libpq-dev build-essential ca-certificates && \
+    pip install 'setuptools<80.0.0' ipython && \
     pip install git+https://github.com/mort666/ivre && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
