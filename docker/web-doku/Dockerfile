@@ -15,10 +15,10 @@
 # along with IVRE. If not, see <http://www.gnu.org/licenses/>.
 
 ARG TAG=latest
-FROM ivre/base:${TAG} AS base
+FROM mort666/ivre-base:${TAG} AS base
 
 FROM debian:12
-LABEL maintainer="Pierre LALET <pierre@droids-corp.org>"
+LABEL maintainer="Hostmasters <hostmasters@virus.org>"
 
 RUN apt-get -q update && \
     apt-get -qy --no-install-recommends install php-fpm php-gd && \

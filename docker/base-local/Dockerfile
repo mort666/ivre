@@ -26,7 +26,7 @@ RUN apt-get -q update && \
 
 
 FROM debian:12
-LABEL maintainer="Pierre LALET <pierre@droids-corp.org>"
+LABEL maintainer="Hostmasters <hostmasters@virus.org>"
 
 ENV DEBIAN_FRONTEND noninteractive
 

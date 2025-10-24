@@ -15,8 +15,8 @@
 # along with IVRE. If not, see <http://www.gnu.org/licenses/>.
 
 ARG TAG=latest
-FROM ivre/base:${TAG}
-LABEL maintainer="Pierre LALET <pierre@droids-corp.org>"
+FROM mort666/ivre-base:${TAG}
+LABEL maintainer="Hostmasters <hostmasters@virus.org>"
 
 RUN apt-get -q update && \
     apt-get -qy --no-install-recommends install uwsgi-plugin-python3 && \

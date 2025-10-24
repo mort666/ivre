@@ -42,8 +42,8 @@ RUN apt -qy --no-install-recommends install cargo ca-certificates pkg-config lib
 
 
 ARG TAG=latest
-FROM ivre/base:${TAG}
-LABEL maintainer="Pierre LALET <pierre@droids-corp.org>"
+FROM mort666/ivre-base:${TAG}
+LABEL maintainer="Hostmasters <hostmasters@virus.org>"
 
 # Tools
 ## non-free: s3270

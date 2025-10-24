@@ -51,14 +51,14 @@ tar --owner=root:0 --group=root:0 --transform='s#^#ivre/#' -rf docker/base-local
 
 cd "$(dirname "$0")/../docker" || exit 255
 
-docker build --no-cache -t "ivre/base:$tag" "base-local" || exit $?
+docker build --no-cache -t "mort666/ivre-base:$tag" "base-local" || exit $?
 
 for img in client agent web web-doku web-uwsgi ; do
-    docker build --no-cache --build-arg TAG="$tag" -t "ivre/$img:$tag" "$img" || exit $?
+  docker buildx build --no-cache --build-arg TAG="latest" -t "ghcr.io/mort666/ivre-$img:latest" -t "mort666/ivre-$img:latest" --builder cloud-mort666-cloud --push --platform linux/amd64 "$img" || exit $?
 done
 
-# Uncomment to push images
-# docker login
-# for img in base client agent web web-doku web-uwsgi ; do
-#     docker push "ivre/$img:$tag"
-# done
+Uncomment to push images
+docker login
+for img in base client agent web web-doku web-uwsgi ; do
+    docker push "ivre/$img:$tag"
+done
