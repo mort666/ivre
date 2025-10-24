@@ -162,7 +162,7 @@ setup(
         "tinydb",
         "psycopg2",
         "matplotlib",
-        "dbus",
+        "dbus-python",
         "pycurl",
         "scapy",
         "pymongo[srv]",

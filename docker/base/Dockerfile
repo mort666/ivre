@@ -21,7 +21,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install pip, get IVRE, uninstall pip
 RUN apt-get -q update && \
-    apt-get -qy --no-install-recommends install git ca-certificates && \
+    apt-get -qy --no-install-recommends install git libpq-dev ca-certificates && \
+    pip install 'setuptools<80.0.0' && \
     pip install git+https://github.com/mort666/ivre && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
